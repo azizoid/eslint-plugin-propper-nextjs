@@ -12,6 +12,6 @@
   "author": "Aziz Shahhuseynov",
   "license": "MIT",
   "peerDependencies": {
-    "eslint": "^8.0.0"
+    "eslint": ">=8.0.0 <10.0.0"
   }
 }
