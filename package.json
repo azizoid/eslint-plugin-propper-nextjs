@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A custom rules to bring order to the Nextjs filenames",
   "main": "lib/index.js",
+  "types": "index.d.ts",
   "keywords": [
     "eslint",
     "eslint-plugin",
