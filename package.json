@@ -1,0 +1,17 @@
+{
+  "name": "eslint-rule-propper-nextjs",
+  "version": "1.0.0",
+  "description": "A custom rules to bring order to the Nextjs filenames",
+  "main": "index.js",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "custom-rules",
+    "nextjs"
+  ],
+  "author": "Aziz Shahhuseynov",
+  "license": "MIT",
+  "peerDependencies": {
+    "eslint": "^8.0.0"
+  }
+}
