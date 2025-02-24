@@ -1,5 +1,5 @@
 {
-  "name": "eslint-rule-propper-nextjs",
+  "name": "eslint-plugin-propper-nextjs",
   "version": "1.0.0",
   "description": "A custom rules to bring order to the Nextjs filenames",
   "main": "index.js",

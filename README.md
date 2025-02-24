@@ -1,7 +1,7 @@
-# eslint-rules-propper-nextjs
+# eslint-plugin-propper-nextjs
 
 ## Overview
-**eslint-rules-propper-nextjs** is a custom ESLint plugin designed to enforce best practices for Next.js projects. It provides rules to ensure naming conventions for `page.tsx`, `layout.tsx`, `template.tsx`, and utility functions inside the `utilities/` folder.
+**eslint-plugin-propper-nextjs** is a custom ESLint plugin designed to enforce best practices for Next.js projects. It provides rules to ensure naming conventions for `page.tsx`, `layout.tsx`, `template.tsx`, and utility functions inside the `utilities/` folder.
 
 ## Installation
 
