@@ -18,7 +18,7 @@ pnpm install -D eslint-plugin-propper-nextjs eslint-plugin-import
 ```
 
 ### **Peer Dependencies**
-This package requires **`eslint-plugin-import`** as a peer dependency. Make sure it is installed to avoid errors.
+This package requires **`eslint-plugin-import`** as a **peer dependency**. Make sure it is installed to avoid errors.
 
 ## Usage
 
@@ -65,6 +65,7 @@ module.exports = {
 ### **Custom Rules for Next.js**
 - ✅ `"propper-nextjs/custom-page-rule"` – Enforces proper naming of default exports in `page.tsx`, `layout.tsx`, and `template.tsx`.
 - ✅ `"propper-nextjs/custom-utility-rule"` – Ensures utility files export a function matching the filename.
+- ✅ `"propper-nextjs/no-default-export-except-nextjs"` – **New Rule:** Forbids default exports everywhere except in Next.js reserved files (`page.tsx`, `layout.tsx`, `template.tsx`).
 
 ### **Import and Code Styling Rules**
 - ✅ `"import/order"` – Ensures readable and structured imports.
@@ -77,6 +78,12 @@ module.exports = {
 - ✅ `"quotes": ["error", "single"]` – Enforces single quotes for strings.
 - ✅ `"no-trailing-spaces"` – Removes unnecessary spaces at the end of lines.
 - ✅ `"prefer-const"` – Enforces `const` for variables that are not reassigned.
+
+## **Release Notes: Minor Version Update**
+### **What's New in This Version?**
+- **New Rule:** `"propper-nextjs/no-default-export-except-nextjs"` - Disallows default exports **everywhere except** in Next.js reserved files (`page.tsx`, `layout.tsx`, `template.tsx`).
+- **Improved Plugin Registration:** Ensures compatibility with **ESLint 9+ Flat Config**.
+- **Bug Fixes:** Corrected `plugins` format to ensure ESLint loads all rules correctly.
 
 ## Contributing
 Pull requests are welcome! If you have ideas for new rules, feel free to open an issue.
