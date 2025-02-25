@@ -16,11 +16,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          registry-url: "https://registry.npmjs.org/"
-          cache: "npm"
+          registry-url: "https://registry.npmjs.org/" 
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (skip lock file requirement)
+        run: npm install --no-package-lock
 
       - name: Publish package
         run: npm publish --access public
