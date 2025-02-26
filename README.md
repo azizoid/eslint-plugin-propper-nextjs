@@ -1,18 +1,19 @@
 # eslint-plugin-propper-nextjs
 
 ## Overview
-**eslint-plugin-propper-nextjs** is a custom ESLint plugin designed to enforce best practices for Next.js projects. It provides rules to ensure naming conventions for `page.tsx`, `layout.tsx`, `template.tsx`, and utility functions inside the `utilities/` folder, along with import and styling rules.
+**eslint-plugin-propper-nextjs** is a custom ESLint plugin designed to enforce best practices for Next.js projects.  
+It ensures **correct default exports in Next.js reserved files**, **restricts default exports in other files**,  
+and enforces **import and styling rules** for consistency.
 
-## Installation
+---
 
+## **Installation**
 To install this plugin, run:
 
 ```sh
 npm install --save-dev eslint-plugin-propper-nextjs eslint-plugin-import
 ```
-
 or with pnpm:
-
 ```sh
 pnpm install -D eslint-plugin-propper-nextjs eslint-plugin-import
 ```
@@ -20,11 +21,11 @@ pnpm install -D eslint-plugin-propper-nextjs eslint-plugin-import
 ### **Peer Dependencies**
 This package requires **`eslint-plugin-import`** as a **peer dependency**. Make sure it is installed to avoid errors.
 
-## Usage
+---
 
-### **Enable the Plugin in ESLint**
+## **Usage**
 
-#### **For ESLint 9+ (Flat Config)**
+### ✅ **For ESLint 9+ (Flat Config)**
 Modify your `eslint.config.js`:
 
 ```javascript
@@ -51,7 +52,7 @@ const eslintConfig = [
 export default eslintConfig;
 ```
 
-### **For ESLint 8 and Below (.eslintrc.js format)**
+### ✅ **For ESLint 8 and Below (`.eslintrc.js` format)**
 If using legacy ESLint config, modify `.eslintrc.js`:
 
 ```javascript
@@ -61,33 +62,64 @@ module.exports = {
 };
 ```
 
+---
+
 ## **Rules Included**
-### **Custom Rules for Next.js**
-- ✅ `"propper-nextjs/custom-page-rule"` – Enforces proper naming of default exports in `page.tsx`, `layout.tsx`, and `template.tsx`.
-- ✅ `"propper-nextjs/custom-utility-rule"` – Ensures utility files export a function matching the filename.
-- ✅ `"propper-nextjs/no-default-export-except-nextjs"` – **New Rule:** Forbids default exports everywhere except in Next.js reserved files (`page.tsx`, `layout.tsx`, `template.tsx`).
+### **Next.js Default Export Rules**
+| **File Type**  | **Expected Default Export Name** |
+|---------------|--------------------------------|
+| `layout.tsx`  | `Layout` |
+| `page.tsx`  | `Page` |
+| `loading.tsx`  | `Loading` |
+| `not-found.tsx`  | `NotFound` |
+| `error.tsx`  | `Error` |
+| `global-error.tsx`  | `GlobalError` |
+| `template.tsx`  | `Template` |
 
-### **Import and Code Styling Rules**
-- ✅ `"import/order"` – Ensures readable and structured imports.
-- ✅ `"import/no-duplicates"` – Prevents duplicate imports.
-- ✅ `"import/no-cycle"` – Detects circular dependencies.
-- ✅ `"import/no-extraneous-dependencies"` – Ensures only installed dependencies are imported.
-- ✅ `"import/first"` – Ensures imports come before other statements.
-- ✅ `"import/newline-after-import"` – Enforces a blank line after imports.
-- ✅ `"no-console"` – Disallows console statements in production.
-- ✅ `"quotes": ["error", "single"]` – Enforces single quotes for strings.
-- ✅ `"no-trailing-spaces"` – Removes unnecessary spaces at the end of lines.
-- ✅ `"prefer-const"` – Enforces `const` for variables that are not reassigned.
+✅ Ensures correct naming for **default exports in Next.js reserved files**.  
+✅ **Prevents default exports in non-Next.js files** (e.g., inside `components/`, `lib/`).  
+✅ Supports both **named functions** (`export function Page() {}`) and **arrow functions** (`export const Page = () => {}`).  
+✅ **Auto-fixable**: Converts `export default function()` into `export const ComponentName = () => {};`.
 
-## **Release Notes: Minor Version Update**
+---
+
+### ** Import & Code Styling Rules**
+| **Rule** | **Description** |
+|----------|---------------|
+| `"import/order"` | Enforces structured import grouping |
+| `"import/no-duplicates"` | Prevents duplicate imports |
+| `"import/no-cycle"` | Detects circular dependencies |
+| `"import/no-extraneous-dependencies"` | Ensures only installed dependencies are imported |
+| `"import/first"` | Ensures imports come before other statements |
+| `"import/newline-after-import"` | Enforces a blank line after imports |
+| `"no-console"` | Disallows `console.log` in production |
+| `"quotes": ["error", "single"]` | Enforces single quotes for strings |
+| `"no-trailing-spaces"` | Removes unnecessary spaces at the end of lines |
+| `"prefer-const"` | Requires `const` for variables that are never reassigned |
+
+---
+
+## **Release Notes**
 ### **What's New in This Version?**
-- **New Rule:** `"propper-nextjs/no-default-export-except-nextjs"` - Disallows default exports **everywhere except** in Next.js reserved files (`page.tsx`, `layout.tsx`, `template.tsx`).
-- **Improved Plugin Registration:** Ensures compatibility with **ESLint 9+ Flat Config**.
-- **Bug Fixes:** Corrected `plugins` format to ensure ESLint loads all rules correctly.
+- ✅ **Merged Rules for Next.js Exports:** Now, one rule handles **both naming conventions & default export restrictions**.
+- ✅ **Improved Plugin Registration:** Fully compatible with **ESLint 9+ Flat Config**.
+- ✅ **Removed Utility File Rule:** No longer enforces utility function names.
+- ✅ **Auto-Fix Enhancements:** ESLint can now fix default export violations more effectively.
 
-## Contributing
-Pull requests are welcome! If you have ideas for new rules, feel free to open an issue.
+---
 
-## Author
+## **How This Works**
+1️⃣ **Ensures Next.js reserved files follow correct naming conventions.**  
+2️⃣ **Prevents default exports in non-Next.js files (e.g., `components/`).**  
+3️⃣ **Helps structure imports and maintain clean code.**  
+4️⃣ **Auto-fixable to enforce best practices effortlessly.**  
+
+---
+
+## **Contributing**
+Pull requests are welcome! If you have ideas for **new rules** or **improvements**, feel free to open an issue.
+
+---
+
+## ** Author**
 Maintained by **Aziz Shahhuseynov**.
-
